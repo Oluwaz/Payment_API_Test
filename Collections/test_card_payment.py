@@ -1,5 +1,5 @@
 import requests
-
+import pytest
 
 base_url = "https://developer.ecobank.com"
 
@@ -26,7 +26,7 @@ def test_card_payment():
         "Content-Type": "application/json",
         "Origin": "developer.ecobank.com",
     }
-    request = requests.post(base_url + "/corporateapi/merchant/Signature", json=payload)
+    request = requests.post(base_url + "/corporateapi/merchant/Signature", json=payload, headers=headers)
 
     assert request.status_code == 403
 
