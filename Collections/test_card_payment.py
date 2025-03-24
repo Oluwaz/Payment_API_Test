@@ -22,7 +22,10 @@ def test_card_payment():
     },
     "secureHash": "1be4bf59f4917a306005fd8178b8ae9ac385b832a94b15c7a87945cf374edab099e9735379833a01053c33f0edae94eb"
     }
-
+    headers = {
+        "Content-Type": "application/json",
+        "Origin": "developer.ecobank.com",
+    }
     request = requests.post(base_url + "/corporateapi/merchant/Signature", json=payload)
 
     assert request.status_code == 403
