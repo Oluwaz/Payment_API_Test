@@ -28,7 +28,7 @@ def test_token_generaton():
     assert request.status_code == 200
 
 
-def test_token_generation ():
+def test_token():
     payload = {
         "userId": "iamaunifieddev103",
         "password": "$2a$10$Wmame.Lh1FJDCB4JJIxtx.3SZT0dP2XlQWgj9Q5UAGcDLpB0yRYCC"
