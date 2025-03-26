@@ -1,4 +1,5 @@
 import requests
+
 from test_token_generation import test_token
 import pytest
 
