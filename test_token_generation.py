@@ -47,5 +47,7 @@ def test_token():
     assert request.json()["token"] is not None
     assert request.json()["token"] != ""
     token = request.json()["token"]
-    print(token)
+    
+
+    return token
     

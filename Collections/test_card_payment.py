@@ -1,5 +1,5 @@
 import requests
-from test_token_generation import token
+from test_token_generation import test_token
 import pytest
 
 base_url = "https://developer.ecobank.com"
@@ -26,7 +26,7 @@ def test_card_payment():
     headers = {
         "Content-Type": "application/json",
         "Origin": "developer.ecobank.com",
-        "Authorization": f"Bearer {token}"
+        "Authorization": f"Bearer {test_token}"
     }
     request = requests.post(base_url + "/corporateapi/merchant/Signature", json=payload, headers=headers)
 
@@ -34,7 +34,7 @@ def test_card_payment():
     assert request.json()["response_code"] == 200
     assert request.json()["response_message"] == "Success"
 
-    
+
 
 
 
