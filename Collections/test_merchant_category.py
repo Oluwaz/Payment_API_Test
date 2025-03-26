@@ -1,11 +1,12 @@
 import pytest
-from test_token_generation import test_token
+
+# from test_token_generation import test_token
 import requests
 
 
 base_url = "https://developer.ecobank.com"
 
-def test_merchant():
+def test_merchant(token):
     payload = {
         "requestId": "123344",
         "affiliateCode": "EGH",
@@ -17,7 +18,7 @@ def test_merchant():
     headers = {
         "Content-Type": "application/json",
         "Origin": "developer.ecobank.com",
-        "Authorization": f"Bearer {test_token}"
+        "Authorization": f"Bearer {token}"
     }
 
     request = requests.post(base_url + "/corporateapi/merchant/getmcc", json=payload, headers=headers)
