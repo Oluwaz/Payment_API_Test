@@ -37,4 +37,8 @@ def test_qr_payment(token):
     }
     request = requests.post(base_url + "/corporateapi/merchant/createqr", json=payload, headers=headers)
 
-    
+    assert request.status_code == 200
+    load = request.json()
+
+    print(load)
+
