@@ -1,4 +1,5 @@
 import requests
+import time
 
 #from test_token_generation import test_token
 
@@ -30,9 +31,15 @@ def test_card_payment(token):
         "Origin": "developer.ecobank.com",
         "Authorization": f"Bearer {token}"
     }
+    sart_time = time.time() 
     request = requests.post(base_url + "/corporateapi/merchant/Signature", json=payload, headers=headers)
+    end_time = time.time( )
+
+    time_taken = end_time - sart_time
+    print(f"Time taken for request: {time_taken} seconds")
 
     assert request.status_code == 200
+    assert time_taken < 2.0
     load = request.json()
     print(load)
 
